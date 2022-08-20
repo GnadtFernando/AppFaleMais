@@ -9,6 +9,8 @@ class AppController {
   late double taxCorrection;
   late double finalPrice;
   int plan = 0;
+  double tax = 0.0;
+  int duration = 0;
 
   convertPlan() {
     if (dropdownValue3 == 'FaleMais 30') {
@@ -19,7 +21,7 @@ class AppController {
       } else if (dropdownValue3 == 'FaleMais 120') {
         plan = 120;
       } else {
-        print('erro');
+        return null;
       }
     }
   }
@@ -29,22 +31,20 @@ class AppController {
     int destiny,
     int duration,
   ) {
-    double tax = 0.0;
-
     switch (origin) {
       case 11:
         switch (destiny) {
           case 16:
             tax = 1.9;
-            print(duration * tax);
+            duration * tax;
             break;
           case 17:
             tax = 1.7;
-            print(duration * tax);
+            duration * tax;
             break;
           case 18:
             tax = 0.9;
-            print(duration * tax);
+            duration * tax;
             break;
           default:
             print('erro');
@@ -54,7 +54,7 @@ class AppController {
         switch (destiny) {
           case 11:
             tax = 2.9;
-            print(duration * tax);
+            duration * tax;
             break;
           default:
             print('erro');
@@ -64,17 +64,17 @@ class AppController {
         switch (destiny) {
           case 11:
             tax = 2.7;
-            print(duration * tax);
+            duration * tax;
             break;
           default:
-            print('erro');
+            duration * tax;
         }
         break;
       case 18:
         switch (destiny) {
           case 11:
             tax = 1.9;
-            print(duration * tax);
+            duration * tax;
             break;
           default:
             print('erro');
@@ -82,9 +82,8 @@ class AppController {
         break;
     }
     convertPlan();
-
     if (duration <= plan) {
-      print('Não paga nada');
+      const Text('Com o plano fale mais você não paga');
     } else {
       num minExceed = duration - plan;
       percent = (10.0 / 100.0);
