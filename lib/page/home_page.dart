@@ -100,11 +100,8 @@ class _HomeViewState extends State<HomeView> {
                       controller.dropdownValue3 = newValue!;
                     });
                   },
-                  items: <String>[
-                    'Fale Mais 30',
-                    'Fale Mais 60',
-                    'Fale Mais 120'
-                  ].map<DropdownMenuItem<String>>((String value) {
+                  items: <String>['FaleMais 30', 'FaleMais 60', 'FaleMais 120']
+                      .map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
@@ -157,7 +154,7 @@ class _HomeViewState extends State<HomeView> {
                             int.parse(controller.dropdownValue),
                             int.parse(controller.dropdownValue2),
                             int.parse(controller.minutesController.text),
-                            int.parse(controller.dropdownValue3),
+                            // int.parse(controller.dropdownValue3),
                           ),
                           print(controller.calculate),
                         }
