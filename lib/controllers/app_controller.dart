@@ -8,8 +8,27 @@ class AppController {
   late double percent;
   late double taxCorrection;
   late double finalPrice;
+  int plan = 0;
 
-  calculate(int origin, int destiny, int duration) {
+  convertPlan() {
+    if (dropdownValue3 == 'FaleMais 30') {
+      plan = 30;
+    } else {
+      if (dropdownValue3 == 'FaleMais 60') {
+        plan = 60;
+      } else if (dropdownValue3 == 'FaleMais 120') {
+        plan = 120;
+      } else {
+        print('erro');
+      }
+    }
+  }
+
+  calculate(
+    int origin,
+    int destiny,
+    int duration,
+  ) {
     double tax = 0.0;
 
     switch (origin) {
@@ -62,11 +81,12 @@ class AppController {
         }
         break;
     }
+    convertPlan();
 
-    if (duration == 60) {
+    if (duration <= plan) {
       print('Não paga nada');
     } else {
-      int minExceed = duration - 120;
+      num minExceed = duration - plan;
       percent = (10.0 / 100.0);
       taxCorrection = tax + (percent * tax);
       finalPrice = minExceed * taxCorrection;

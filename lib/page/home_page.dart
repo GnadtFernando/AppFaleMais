@@ -154,7 +154,6 @@ class _HomeViewState extends State<HomeView> {
                             int.parse(controller.dropdownValue),
                             int.parse(controller.dropdownValue2),
                             int.parse(controller.minutesController.text),
-                            // int.parse(controller.dropdownValue3),
                           ),
                           print(controller.calculate),
                         }
