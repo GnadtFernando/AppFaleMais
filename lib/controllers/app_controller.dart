@@ -7,10 +7,11 @@ class AppController {
   String dropdownValue3 = 'FaleMais 30';
   late double percent;
   late double taxCorrection;
-  late double finalPrice;
+  double finalPrice = 0;
   int plan = 0;
   double tax = 0.0;
   int duration = 0;
+  double withoutPlan = 0;
 
   convertPlan() {
     if (dropdownValue3 == 'FaleMais 30') {
@@ -35,16 +36,19 @@ class AppController {
       case 11:
         switch (destiny) {
           case 16:
-            tax = 1.9;
-            duration * tax;
+            tax = 1.90;
+            withoutPlan = duration * tax;
+            print(withoutPlan);
             break;
           case 17:
             tax = 1.7;
             duration * tax;
+            print(duration * tax);
             break;
           case 18:
             tax = 0.9;
             duration * tax;
+            print(duration * tax);
             break;
           default:
             print('erro');
@@ -55,6 +59,7 @@ class AppController {
           case 11:
             tax = 2.9;
             duration * tax;
+            print(duration * tax);
             break;
           default:
             print('erro');
@@ -65,6 +70,7 @@ class AppController {
           case 11:
             tax = 2.7;
             duration * tax;
+            print(duration * tax);
             break;
           default:
             duration * tax;
@@ -75,6 +81,8 @@ class AppController {
           case 11:
             tax = 1.9;
             duration * tax;
+            print(duration * tax);
+
             break;
           default:
             print('erro');
@@ -83,7 +91,7 @@ class AppController {
     }
     convertPlan();
     if (duration <= plan) {
-      const Text('Com o plano fale mais você não paga');
+      print('Não precisa pagar');
     } else {
       num minExceed = duration - plan;
       percent = (10.0 / 100.0);

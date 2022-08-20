@@ -11,6 +11,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final controller = AppController();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -155,6 +156,9 @@ class _HomeViewState extends State<HomeView> {
                             int.parse(controller.dropdownValue2),
                             int.parse(controller.minutesController.text),
                           ),
+                          Fluttertoast.showToast(
+                              msg:
+                                  'Valor sem o plano é de ${controller.withoutPlan}')
                         }
                     },
                     child: const Text(
