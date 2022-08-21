@@ -43,8 +43,18 @@ class _HomeViewState extends State<HomeView> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
-                    width: size.width * 0.2,
-                    child: DropdownButton<String>(
+                    width: size.width * 0.4,
+                    child: DropdownButtonFormField<String>(
+                      icon: const Icon(Icons.keyboard_arrow_down),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(size.width * 0.09),
+                          ),
+                        ),
+                        filled: false,
+                      ),
+                      iconSize: size.width * 0.04,
                       alignment: Alignment.center,
                       value: controller.dropdownValue,
                       onChanged: (String? newValue) {
@@ -65,13 +75,22 @@ class _HomeViewState extends State<HomeView> {
                 Padding(
                   padding: EdgeInsets.only(top: size.height * 0.04),
                   child: Text(
-                    'Selecione seu DDD de destino:  ',
+                    'Selecione o DDD de destino:  ',
                     style: TextStyle(fontSize: size.width * 0.04),
                   ),
                 ),
                 SizedBox(
-                  width: size.width * 0.2,
-                  child: DropdownButton<String>(
+                  width: size.width * 0.4,
+                  child: DropdownButtonFormField<String>(
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(size.width * 0.09),
+                        ),
+                      ),
+                      filled: false,
+                    ),
                     alignment: Alignment.center,
                     value: controller.dropdownValue2,
                     onChanged: (String? newValue) {
@@ -95,34 +114,55 @@ class _HomeViewState extends State<HomeView> {
                     style: TextStyle(fontSize: size.width * 0.04),
                   ),
                 ),
-                DropdownButton<String>(
-                  value: controller.dropdownValue3,
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      controller.dropdownValue3 = newValue!;
-                    });
-                  },
-                  items: <String>['FaleMais 30', 'FaleMais 60', 'FaleMais 120']
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
+                SizedBox(
+                  width: size.width * 0.4,
+                  child: DropdownButtonFormField<String>(
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(size.width * 0.09),
+                        ),
+                      ),
+                      filled: false,
+                    ),
+                    value: controller.dropdownValue3,
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        controller.dropdownValue3 = newValue!;
+                      });
+                    },
+                    items: <String>[
+                      'FaleMais 30',
+                      'FaleMais 60',
+                      'FaleMais 120'
+                    ].map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                  ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: size.width * 0.04),
-                  child: SizedBox(
-                    width: size.width * 0.6,
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      controller: controller.minutesController,
-                      decoration: const InputDecoration(
-                        focusColor: Colors.black,
-                        labelText: 'Quantos minutos?',
-                        labelStyle: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.w200),
-                        border: OutlineInputBorder(),
+                  padding: EdgeInsets.only(top: size.height * 0.04),
+                  child: Text(
+                    'Informe os minutos da sua ligação:',
+                    style: TextStyle(fontSize: size.width * 0.04),
+                  ),
+                ),
+                SizedBox(
+                  width: size.width * 0.4,
+                  child: TextFormField(
+                    keyboardType: TextInputType.number,
+                    controller: controller.minutesController,
+                    decoration: InputDecoration(
+                      focusColor: Colors.black,
+                      hintText: 'Informe',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(size.width * 0.05),
+                        ),
                       ),
                     ),
                   ),
