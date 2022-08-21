@@ -177,7 +177,7 @@ class _HomeViewState extends State<HomeView> {
                     style: ElevatedButton.styleFrom(
                       primary: Colors.purple,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(size.width * 0.04),
                       ),
                     ),
                     onPressed: () => {
