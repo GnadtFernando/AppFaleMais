@@ -196,7 +196,8 @@ class _HomeViewState extends State<HomeView> {
                         );
                         LoadingDefault.closeLoading();
                         if (controller.condition == -1) {
-                          Fluttertoast.showToast(msg: 'Combinação invalida');
+                          Fluttertoast.showToast(
+                              msg: 'No momento não temos esse plano');
                           controller.condition = 0;
                         } else {
                           ModalTextResult.showModal(
