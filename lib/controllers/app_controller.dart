@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class AppController {
+  // values of dropbox
   TextEditingController minutesController = TextEditingController();
   String dropdownValue = '011';
   String dropdownValue2 = '011';
   String dropdownValue3 = 'FaleMais 30';
-  late double percent;
-  late double taxCorrection;
+
+  // variables
+  double percent = 0;
+  double taxCorrection = 0;
   double finalPrice = 0;
   int plan = 0;
   double tax = 0.0;
   int duration = 0;
   double withoutPlan = 0;
-  double noCombination = 0;
+  int condition = 0;
 
+// Function to convert string in number
   convertPlan() {
     if (dropdownValue3 == 'FaleMais 30') {
       plan = 30;
@@ -28,6 +33,7 @@ class AppController {
     }
   }
 
+// Function to calculate price
   calculate(
     int origin,
     int destiny,
@@ -51,7 +57,7 @@ class AppController {
             withoutPlan = duration * tax;
             break;
           default:
-            return noCombination = -1;
+            return condition = -1;
         }
         break;
       case 16:
@@ -62,7 +68,7 @@ class AppController {
             withoutPlan = duration * tax;
             break;
           default:
-            return noCombination = -1;
+            return condition = -1;
         }
         break;
       case 17:
@@ -73,7 +79,7 @@ class AppController {
             withoutPlan = duration * tax;
             break;
           default:
-            return noCombination = -1;
+            return condition = -1;
         }
         break;
       case 18:
@@ -84,7 +90,7 @@ class AppController {
             withoutPlan = duration * tax;
             break;
           default:
-            return noCombination = -1;
+            return condition = -1;
         }
         break;
     }

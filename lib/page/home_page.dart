@@ -57,9 +57,9 @@ class _HomeViewState extends State<HomeView> {
                     iconSize: size.width * 0.04,
                     alignment: Alignment.center,
                     value: controller.dropdownValue,
-                    onChanged: (String? newValue) {
+                    onChanged: (String? newValue1) {
                       setState(() {
-                        controller.dropdownValue = newValue!;
+                        controller.dropdownValue = newValue1!;
                       });
                     },
                     items: <String>['011', '016', '017', '018']
@@ -93,9 +93,9 @@ class _HomeViewState extends State<HomeView> {
                     ),
                     alignment: Alignment.center,
                     value: controller.dropdownValue2,
-                    onChanged: (String? newValue) {
+                    onChanged: (String? newValue2) {
                       setState(() {
-                        controller.dropdownValue2 = newValue!;
+                        controller.dropdownValue2 = newValue2!;
                       });
                     },
                     items: <String>['011', '016', '017', '018']
@@ -128,9 +128,9 @@ class _HomeViewState extends State<HomeView> {
                       filled: false,
                     ),
                     value: controller.dropdownValue3,
-                    onChanged: (String? newValue) {
+                    onChanged: (String? newValue3) {
                       setState(() {
-                        controller.dropdownValue3 = newValue!;
+                        controller.dropdownValue3 = newValue3!;
                       });
                     },
                     items: <String>[
@@ -181,39 +181,31 @@ class _HomeViewState extends State<HomeView> {
                         borderRadius: BorderRadius.circular(size.width * 0.04),
                       ),
                     ),
-                    onPressed: () => {
-                      LoadingDefault.showLoading(),
-                      if (controller.dropdownValue == controller.dropdownValue2)
-                        {
-                          LoadingDefault.closeLoading(),
-                          Fluttertoast.showToast(
-                              msg: 'Locais devem ser diferentes '),
-                        }
-                      else if (controller.minutesController.text == '')
-                        {
-                          LoadingDefault.closeLoading(),
-                          Fluttertoast.showToast(msg: 'Favor informar minutos'),
-                        }
-                      else if (controller.noCombination == -1)
-                        {
-                          LoadingDefault.closeLoading(),
-                          Fluttertoast.showToast(
-                              msg: 'Essa opção não existe no momento'),
-                        }
-                      else
-                        {
-                          controller.calculate(
-                            int.parse(controller.dropdownValue),
-                            int.parse(controller.dropdownValue2),
-                            int.parse(controller.minutesController.text),
-                          ),
-                          LoadingDefault.closeLoading(),
+                    onPressed: () {
+                      if (controller.dropdownValue ==
+                          controller.dropdownValue2) {
+                        Fluttertoast.showToast(
+                            msg: 'Locais devem ser diferentes ');
+                      } else if (controller.minutesController.text.isEmpty) {
+                        Fluttertoast.showToast(msg: 'Favor informar minutos');
+                      } else {
+                        controller.calculate(
+                          int.parse(controller.dropdownValue),
+                          int.parse(controller.dropdownValue2),
+                          int.parse(controller.minutesController.text),
+                        );
+                        LoadingDefault.closeLoading();
+                        if (controller.condition == -1) {
+                          Fluttertoast.showToast(msg: 'Combinação invalida');
+                          controller.condition = 0;
+                        } else {
                           ModalTextResult.showModal(
                             context,
                             'Valor sem o plano será de ${controller.withoutPlan} reais',
                             'Valor com o plano será de ${controller.finalPrice} reais',
-                          ),
+                          );
                         }
+                      }
                     },
                     child: Text(
                       'Simular',
