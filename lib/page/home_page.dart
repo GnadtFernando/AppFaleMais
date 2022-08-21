@@ -41,7 +41,7 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.only(top: size.width * 0.04),
                   child: SizedBox(
                     width: size.width * 0.4,
                     child: DropdownButtonFormField<String>(
