@@ -150,6 +150,11 @@ class _HomeViewState extends State<HomeView> {
                         {
                           Fluttertoast.showToast(msg: 'Favor informar minutos'),
                         }
+                      else if (controller.noCombination == -1)
+                        {
+                          Fluttertoast.showToast(
+                              msg: 'Essa opção não existe no momento'),
+                        }
                       else
                         {
                           controller.calculate(
@@ -158,9 +163,10 @@ class _HomeViewState extends State<HomeView> {
                             int.parse(controller.minutesController.text),
                           ),
                           ModalTextResult.showModal(
-                              context,
-                              'Valor sem o plano será de ${controller.withoutPlan} reais',
-                              'Valor com o plano será de ${controller.finalPrice} reais')
+                            context,
+                            'Valor sem o plano será de ${controller.withoutPlan} reais',
+                            'Valor com o plano será de ${controller.finalPrice} reais',
+                          )
                         }
                     },
                     child: const Text(

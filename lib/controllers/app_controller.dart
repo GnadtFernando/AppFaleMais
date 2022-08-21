@@ -1,3 +1,4 @@
+import 'package:dev_fale_mais/widgets/loading/loading_deafult.dart';
 import 'package:flutter/material.dart';
 
 class AppController {
@@ -12,6 +13,7 @@ class AppController {
   double tax = 0.0;
   int duration = 0;
   double withoutPlan = 0;
+  double noCombination = 0;
 
   convertPlan() {
     if (dropdownValue3 == 'FaleMais 30') {
@@ -32,26 +34,29 @@ class AppController {
     int destiny,
     int duration,
   ) {
+    LoadingDefault.showLoading();
     switch (origin) {
       case 11:
         switch (destiny) {
           case 16:
             tax = 1.90;
             withoutPlan = duration * tax;
-            print(withoutPlan);
+            LoadingDefault.closeLoading();
             break;
           case 17:
             tax = 1.7;
             duration * tax;
-            print(duration * tax);
+            withoutPlan = duration * tax;
+            LoadingDefault.closeLoading();
             break;
           case 18:
             tax = 0.9;
             duration * tax;
-            print(duration * tax);
+            withoutPlan = duration * tax;
+            LoadingDefault.closeLoading();
             break;
           default:
-            print('erro');
+            return noCombination = -1;
         }
         break;
       case 16:
@@ -59,10 +64,11 @@ class AppController {
           case 11:
             tax = 2.9;
             duration * tax;
-            print(duration * tax);
+            withoutPlan = duration * tax;
+            LoadingDefault.closeLoading();
             break;
           default:
-            print('erro');
+            return noCombination = -1;
         }
         break;
       case 17:
@@ -70,10 +76,11 @@ class AppController {
           case 11:
             tax = 2.7;
             duration * tax;
-            print(duration * tax);
+            withoutPlan = duration * tax;
+            LoadingDefault.closeLoading();
             break;
           default:
-            duration * tax;
+            return noCombination = -1;
         }
         break;
       case 18:
@@ -81,12 +88,13 @@ class AppController {
           case 11:
             tax = 1.9;
             duration * tax;
-            print(duration * tax);
-
+            withoutPlan = duration * tax;
+            LoadingDefault.closeLoading();
             break;
           default:
-            print('erro');
+            return noCombination = -1;
         }
+        LoadingDefault.closeLoading();
         break;
     }
     convertPlan();
@@ -97,7 +105,6 @@ class AppController {
       percent = (10.0 / 100.0);
       taxCorrection = tax + (percent * tax);
       finalPrice = minExceed * taxCorrection;
-      print(finalPrice);
     }
   }
 }
