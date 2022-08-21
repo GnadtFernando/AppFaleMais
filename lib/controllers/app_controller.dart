@@ -91,7 +91,7 @@ class AppController {
     }
     convertPlan();
     if (duration <= plan) {
-      print('Não precisa pagar');
+      finalPrice = 0;
     } else {
       num minExceed = duration - plan;
       percent = (10.0 / 100.0);

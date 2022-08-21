@@ -1,4 +1,5 @@
 import 'package:dev_fale_mais/controllers/app_controller.dart';
+import 'package:dev_fale_mais/widgets/modals/show_result.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -29,7 +30,7 @@ class _HomeViewState extends State<HomeView> {
             child: Column(
               children: [
                 Text(
-                  'Vamo fazer uma simulação',
+                  'Vamo fazer uma simulação?',
                   style: TextStyle(fontSize: size.width * 0.06),
                 ),
                 Padding(
@@ -156,9 +157,10 @@ class _HomeViewState extends State<HomeView> {
                             int.parse(controller.dropdownValue2),
                             int.parse(controller.minutesController.text),
                           ),
-                          Fluttertoast.showToast(
-                              msg:
-                                  'Valor sem o plano é de ${controller.withoutPlan}')
+                          ModalTextResult.showModal(
+                              context,
+                              'Valor sem o plano será de ${controller.withoutPlan} reais',
+                              'Valor com o plano será de ${controller.finalPrice} reais')
                         }
                     },
                     child: const Text(
