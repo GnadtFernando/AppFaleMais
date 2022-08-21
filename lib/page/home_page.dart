@@ -182,23 +182,26 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     ),
                     onPressed: () => {
+                      LoadingDefault.showLoading(),
                       if (controller.dropdownValue == controller.dropdownValue2)
                         {
+                          LoadingDefault.closeLoading(),
                           Fluttertoast.showToast(
                               msg: 'Locais devem ser diferentes '),
                         }
                       else if (controller.minutesController.text == '')
                         {
+                          LoadingDefault.closeLoading(),
                           Fluttertoast.showToast(msg: 'Favor informar minutos'),
                         }
                       else if (controller.noCombination == -1)
                         {
+                          LoadingDefault.closeLoading(),
                           Fluttertoast.showToast(
                               msg: 'Essa opção não existe no momento'),
                         }
                       else
                         {
-                          LoadingDefault.showLoading(),
                           controller.calculate(
                             int.parse(controller.dropdownValue),
                             int.parse(controller.dropdownValue2),
