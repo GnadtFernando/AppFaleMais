@@ -209,9 +209,9 @@ class _HomeViewState extends State<HomeView> {
                           )
                         }
                     },
-                    child: const Text(
+                    child: Text(
                       'Simular',
-                      style: TextStyle(fontSize: 18),
+                      style: TextStyle(fontSize: size.width * 0.06),
                     ),
                   ),
                 ),
