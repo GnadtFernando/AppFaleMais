@@ -45,6 +45,7 @@ class _HomeViewState extends State<HomeView> {
                   child: SizedBox(
                     width: size.width * 0.4,
                     child: DropdownButtonFormField<String>(
+                      focusColor: Colors.transparent,
                       icon: const Icon(Icons.keyboard_arrow_down),
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -82,6 +83,7 @@ class _HomeViewState extends State<HomeView> {
                 SizedBox(
                   width: size.width * 0.4,
                   child: DropdownButtonFormField<String>(
+                    focusColor: Colors.transparent,
                     icon: const Icon(Icons.keyboard_arrow_down),
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -117,6 +119,7 @@ class _HomeViewState extends State<HomeView> {
                 SizedBox(
                   width: size.width * 0.4,
                   child: DropdownButtonFormField<String>(
+                    focusColor: Colors.transparent,
                     icon: const Icon(Icons.keyboard_arrow_down),
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
