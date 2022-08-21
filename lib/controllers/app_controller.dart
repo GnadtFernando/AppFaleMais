@@ -1,4 +1,3 @@
-import 'package:dev_fale_mais/widgets/loading/loading_deafult.dart';
 import 'package:flutter/material.dart';
 
 class AppController {
@@ -34,26 +33,22 @@ class AppController {
     int destiny,
     int duration,
   ) {
-    LoadingDefault.showLoading();
     switch (origin) {
       case 11:
         switch (destiny) {
           case 16:
             tax = 1.90;
             withoutPlan = duration * tax;
-            LoadingDefault.closeLoading();
             break;
           case 17:
             tax = 1.7;
             duration * tax;
             withoutPlan = duration * tax;
-            LoadingDefault.closeLoading();
             break;
           case 18:
             tax = 0.9;
             duration * tax;
             withoutPlan = duration * tax;
-            LoadingDefault.closeLoading();
             break;
           default:
             return noCombination = -1;
@@ -65,7 +60,6 @@ class AppController {
             tax = 2.9;
             duration * tax;
             withoutPlan = duration * tax;
-            LoadingDefault.closeLoading();
             break;
           default:
             return noCombination = -1;
@@ -77,7 +71,6 @@ class AppController {
             tax = 2.7;
             duration * tax;
             withoutPlan = duration * tax;
-            LoadingDefault.closeLoading();
             break;
           default:
             return noCombination = -1;
@@ -89,19 +82,17 @@ class AppController {
             tax = 1.9;
             duration * tax;
             withoutPlan = duration * tax;
-            LoadingDefault.closeLoading();
             break;
           default:
             return noCombination = -1;
         }
-        LoadingDefault.closeLoading();
         break;
     }
     convertPlan();
     if (duration <= plan) {
       finalPrice = 0;
     } else {
-      num minExceed = duration - plan;
+      int minExceed = duration - plan;
       percent = (10.0 / 100.0);
       taxCorrection = tax + (percent * tax);
       finalPrice = minExceed * taxCorrection;

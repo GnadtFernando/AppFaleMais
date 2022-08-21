@@ -1,4 +1,5 @@
 import 'package:dev_fale_mais/controllers/app_controller.dart';
+import 'package:dev_fale_mais/widgets/loading/loading_deafult.dart';
 import 'package:dev_fale_mais/widgets/modals/show_result.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -40,37 +41,34 @@ class _HomeViewState extends State<HomeView> {
                     style: TextStyle(fontSize: size.width * 0.04),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: size.width * 0.04),
-                  child: SizedBox(
-                    width: size.width * 0.4,
-                    child: DropdownButtonFormField<String>(
-                      focusColor: Colors.transparent,
-                      icon: const Icon(Icons.keyboard_arrow_down),
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(size.width * 0.09),
-                          ),
+                SizedBox(
+                  width: size.width * 0.4,
+                  child: DropdownButtonFormField<String>(
+                    focusColor: Colors.transparent,
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(size.width * 0.09),
                         ),
-                        filled: false,
                       ),
-                      iconSize: size.width * 0.04,
-                      alignment: Alignment.center,
-                      value: controller.dropdownValue,
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          controller.dropdownValue = newValue!;
-                        });
-                      },
-                      items: <String>['011', '016', '017', '018']
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
+                      filled: false,
                     ),
+                    iconSize: size.width * 0.04,
+                    alignment: Alignment.center,
+                    value: controller.dropdownValue,
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        controller.dropdownValue = newValue!;
+                      });
+                    },
+                    items: <String>['011', '016', '017', '018']
+                        .map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
                   ),
                 ),
                 Padding(
@@ -200,16 +198,18 @@ class _HomeViewState extends State<HomeView> {
                         }
                       else
                         {
+                          LoadingDefault.showLoading(),
                           controller.calculate(
                             int.parse(controller.dropdownValue),
                             int.parse(controller.dropdownValue2),
                             int.parse(controller.minutesController.text),
                           ),
+                          LoadingDefault.closeLoading(),
                           ModalTextResult.showModal(
                             context,
                             'Valor sem o plano será de ${controller.withoutPlan} reais',
                             'Valor com o plano será de ${controller.finalPrice} reais',
-                          )
+                          ),
                         }
                     },
                     child: Text(
