@@ -8,6 +8,10 @@ Com botão direito abra o cmd
 
 ![image](https://user-images.githubusercontent.com/57150488/185927574-ccb868fa-aa57-4fc8-83e1-daa65d324218.png)
 
+executar o comando flutter pub get para instalar as libs utilizadas na produção 
+
+![image](https://user-images.githubusercontent.com/57150488/185928240-0fe7119d-51b8-4839-952b-8859721ea9be.png)
+
 executar o comando Flutter run
 
 ![image](https://user-images.githubusercontent.com/57150488/185927936-fe23c90c-2322-43d2-909a-26dd1bf12ea1.png)
