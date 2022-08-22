@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dev_fale_mais">
    <application
-        android:label="dev_fale_mais"
+        android:label="FaleMais"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
