@@ -31,19 +31,20 @@ class _HomeViewState extends State<HomeView> {
             child: Column(
               children: [
                 Text(
-                  'Vamo fazer uma simulação?',
+                  'Vamos fazer uma simulação?',
                   style: TextStyle(fontSize: size.width * 0.06),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: size.height * 0.04),
                   child: Text(
-                    'Selecione seu DDD de origem:  ',
+                    'Selecione seu DDD de origem:',
                     style: TextStyle(fontSize: size.width * 0.04),
                   ),
                 ),
                 SizedBox(
                   width: size.width * 0.4,
                   child: DropdownButtonFormField<String>(
+                    key: const ValueKey('First Dropdown'),
                     focusColor: Colors.transparent,
                     icon: const Icon(Icons.keyboard_arrow_down),
                     decoration: InputDecoration(
@@ -74,7 +75,7 @@ class _HomeViewState extends State<HomeView> {
                 Padding(
                   padding: EdgeInsets.only(top: size.height * 0.04),
                   child: Text(
-                    'Selecione o DDD de destino:  ',
+                    'Selecione o DDD de destino:',
                     style: TextStyle(fontSize: size.width * 0.04),
                   ),
                 ),
@@ -110,7 +111,7 @@ class _HomeViewState extends State<HomeView> {
                 Padding(
                   padding: EdgeInsets.only(top: size.height * 0.04),
                   child: Text(
-                    'Selecione o plano:  ',
+                    'Selecione o plano:',
                     style: TextStyle(fontSize: size.width * 0.04),
                   ),
                 ),
