@@ -35,6 +35,7 @@ dependencies:
   flutter_easyloading: ^3.0.3
   fluttertoast: ^8.0.9
   flutter_launcher_icons: ^0.10.0
+  flutter_native_splash: ^2.2.8
 
 
 dev_dependencies:
@@ -101,3 +102,8 @@ flutter_icons:
     background_color: "#hexcode"
     theme_color: "#hexcode"
   # icons credit to Freepik
+
+
+flutter_native_splash:
+  color: "#8a00c2"
+  image: "assets/icons/icon.png.png"
